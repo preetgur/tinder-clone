@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import "./TinderCards.css"
+import TinderCard from 'react-tinder-card'
 
 function TinderCards() {
 
@@ -17,17 +18,42 @@ function TinderCards() {
 
     const [people, setPeople] = useState(initialState)
     
+    const swiped = (direction,nameToDelete) => {
+        console.log('You swiped: ' + direction)
+        console.log('person Name : '+ nameToDelete);
+        
+      }
+    
+      const outOfFrame =(name) =>
+      {
+          console.log(name +'left the screen !');
+          
+      }
+       
+     
     return (
         <div className="tinderCards">
-            
+            <div className="tinderCards__cardContainer">
+
             {people.map( (person)=>
             {
-               return <div className="">
-                        <h1>{person.name}</h1>
-                        <img src={person.url} alt="No Image"/>
-                </div>
+               return <TinderCard 
+               className ="swipe"
+               key = {person.name}
+               onSwipe={ (direction) => swiped(direction,person.name)} 
+               onCardLeftScreen={() => outOfFrame(person.name)} 
+               preventSwipe={['up', 'down']}>
+                   
+                   <div className="card" style={{backgroundImage : `url(${person.url})` }}>
+            <h3>{person.name}</h3>
+                   </div>
+                </TinderCard>
             })}
+            </div>
+            
            
+           
+
         </div>
     )
 }

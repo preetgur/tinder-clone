@@ -1,5 +1,6 @@
 
 import './App.css';
+import Footer from './components/Footer';
 import Header from './components/Header';
 import TinderCards from './components/TinderCards';
 
@@ -9,6 +10,8 @@ function App() {
         <Header/>
 
         <TinderCards/>
+
+        <Footer/>
     </div>
   );
 }
