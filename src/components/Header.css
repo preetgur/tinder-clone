@@ -1,0 +1,19 @@
+.header
+{
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+    border-bottom: 2px solid lightgray;
+    background-color: lightgrey;
+}
+
+.header__icon
+{
+
+}
+
+.header__logo
+{
+ object-fit: contain;
+ height: 40px;   
+}
